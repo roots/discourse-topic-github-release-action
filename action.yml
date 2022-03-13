@@ -1,0 +1,32 @@
+name: 'Roots - Discourse release post'
+description: 'Creates a Discourse post for a release'
+author: Scott Walkinshaw
+branding:
+  icon: 'package'  
+  color: 'blue'
+inputs:
+  discourse-base-url:
+    description: 'Base URL of Discourse'
+    required: true
+  discourse-api-key:
+    description: 'Discourse API key'
+    required: true
+  discourse-author-username:
+    description: 'Author username. Default: system'
+    required: false
+    default: 'system'
+  discourse-category:
+    description: 'ID of the post category'
+    required: false
+  discourse-tags:
+    description: 'Post tags (comma-separated list)'
+    required: false
+  package-name:
+    description: 'Name of the package/repo being released. Defaults to the GitHub repo name.'
+    required: false
+outputs:
+  topic-url:
+    description: 'URL of the topic created'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

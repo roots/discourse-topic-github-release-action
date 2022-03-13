@@ -1,0 +1,18 @@
+name: Post on Discourse
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: roots/roots-discourse-release-action@main
+      with:
+        discourse-api-key: ${{ secrets.DISCOURSE_RELEASES_API_KEY }}
+        discourse-base-url: ${{ secrets.DISCOURSE_BASE_URL }}
+        discourse-author-username: swalkinshaw
+        discourse-category: 10
+        discourse-tags:
+          releases
