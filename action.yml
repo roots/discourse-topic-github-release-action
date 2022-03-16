@@ -1,5 +1,5 @@
-name: 'Roots - Discourse release post'
-description: 'Creates a Discourse post for a release'
+name: 'Discourse Topics for GitHub Releases'
+description: 'Create a Discourse topic for a published GitHub release'
 author: Scott Walkinshaw
 branding:
   icon: 'package'  
