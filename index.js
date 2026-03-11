@@ -1,6 +1,6 @@
-const core = require('@actions/core');
-const http = require('@actions/http-client');
-const github = require('@actions/github');
+import * as core from '@actions/core';
+import { HttpClient } from '@actions/http-client';
+import * as github from '@actions/github';
 
 async function run() {
   try {
@@ -14,7 +14,7 @@ async function run() {
     const discourseTags = core.getMultilineInput('discourse-tags') || [];
     const packageName = core.getInput('package-name') || repo;
 
-    const client = new http.HttpClient('discourse-api-client');
+    const client = new HttpClient('discourse-api-client');
     client.requestOptions = {
       headers: {
         'Api-Key': discourseApiKey,
