@@ -26,7 +26,8 @@
   "dependencies": {
     "@actions/core": "^3.0.0",
     "@actions/github": "^9.0.0",
-    "@actions/http-client": "^4.0.0"
+    "@actions/http-client": "^4.0.0",
+    "js-yaml": "^4.1.1"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.4",

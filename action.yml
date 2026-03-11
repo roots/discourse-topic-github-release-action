@@ -12,9 +12,11 @@ inputs:
     description: 'Discourse API key'
     required: true
   discourse-author-username:
-    description: 'Author username. Default: system'
+    description: 'Author username for posting to Discourse. Default: system. If omitted, username mapping from .github/discourse.yml is attempted when a GitHub token is available.'
     required: false
-    default: 'system'
+  github-token:
+    description: 'GitHub token for fetching .github/discourse.yml. Default: GITHUB_TOKEN'
+    required: false
   discourse-category:
     description: 'ID of the post category'
     required: false
