@@ -1,6 +1,6 @@
-# roots-discourse-post-release-action
+# Discourse Topic GitHub Release Action
 
-The `roots-discourse-post-release-action` is a JavaScript action that can post published GitHub releases from a repository to a Discourse instance.
+The `discourse-topic-github-release-action` is a JavaScript action that can post published GitHub releases from a repository to a Discourse instance.
 
 We use this on our main projects to [automatically post releases to Roots Discourse](https://discourse.roots.io/tag/releases?order=created).
 
