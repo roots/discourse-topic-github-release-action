@@ -21,11 +21,34 @@ jobs:
       with:
         discourse-api-key: ${{ secrets.DISCOURSE_RELEASES_API_KEY }}
         discourse-base-url: ${{ secrets.DISCOURSE_BASE_URL }}
-        discourse-author-username: ben
+        github-token: ${{ github.token }}
         discourse-category: 11
         discourse-tags:
           releases
 ```
+
+## Username Mapping
+
+The action automatically maps GitHub usernames to Discourse usernames by reading a `discourse.yml` file from your organization's `.github` repository.
+
+### Setting up username mapping
+
+1. Create a `.github` repository in your organization if it doesn't exist
+2. Add a `discourse.yml` file with the following format:
+
+```yaml
+usernames:
+  github-username: discourse-username
+  another-user: their-discourse-name
+```
+
+When a release is published, the action will:
+
+1. Detect the GitHub username of the person who published the release
+2. Look up their username in the mapping
+3. Use the mapped Discourse username when creating the topic
+
+For backward compatibility, if `discourse-author-username` is provided, that value is used directly. Otherwise, the action attempts username mapping (when a GitHub token is available) and falls back to `system`.
 
 ## Setup
 
@@ -39,9 +62,15 @@ jobs:
 
 ### `discourse-author-username`
 
-Username used for creating the topic on Discourse.
+Username for creating the topic on Discourse.
 
-**Default**: `system`
+**Default**: `system` (if omitted, username mapping is attempted when a GitHub token is available)
+
+### `github-token`
+
+**Optional** GitHub token for fetching the `.github/discourse.yml` file. The action uses this input first, then `GITHUB_TOKEN` if available.
+
+The token must be able to read `owner/.github/discourse.yml` (repository contents read access). If that file cannot be read, the action falls back to `system`.
 
 ### `discourse-category`
 
