@@ -2,6 +2,7 @@
   "name": "roots-discourse-release-action",
   "version": "1.0.0",
   "description": "GitHub Action to create a Discourse post from a GitHub release",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "ncc build",
@@ -23,9 +24,9 @@
   "license": "MIT",
   "homepage": "https://github.com/roots",
   "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.1",
-    "@actions/http-client": "^2.2.3"
+    "@actions/core": "^3.0.0",
+    "@actions/github": "^9.0.0",
+    "@actions/http-client": "^4.0.0"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.4",
