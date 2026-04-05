@@ -4,6 +4,12 @@ The `discourse-topic-github-release-action` is a JavaScript action that can post
 
 We use this on our main projects to [automatically post releases to Roots Discourse](https://discourse.roots.io/tag/releases?order=created).
 
+Other projects using this action:
+
+* [Jenkins](https://community.jenkins.io/c/blog/23)
+* [NetBird](https://forum.netbird.io/tag/releases)
+* [Aleph](https://aleph.discourse.group/tag/release/2)
+
 ## Example usage
 
 ```yaml
