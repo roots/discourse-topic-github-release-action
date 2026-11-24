@@ -29,7 +29,7 @@ jobs:
         discourse-base-url: ${{ secrets.DISCOURSE_BASE_URL }}
         github-token: ${{ github.token }}
         discourse-category: 11
-        discourse-tags:
+        discourse-tags: |
           releases
 ```
 
@@ -84,4 +84,12 @@ Category ID used for creating the topic on Discourse.
 
 ### `discourse-tags`
 
-Tags applied to the topic when creating the topic on Discourse.
+Tags applied to the topic when creating the topic on Discourse. Put one tag per line using a literal block scalar (`|`):
+
+```yaml
+discourse-tags: |
+  releases
+  sage
+```
+
+Without the `|`, YAML folds the lines into a single value (`releases sage`), which Discourse creates as one `releases-sage` tag. Comma-separated values are not split either.
